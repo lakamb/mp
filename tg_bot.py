@@ -150,11 +150,7 @@ async def process_from_dt(message: types.Message, state: FSMContext):
         data['from_dt'] = message.text
     await edit_profile(state, user_id=message.from_user.id)
 
-    await edit_profile(state, user_id=message.from_user.id)
     await message.reply("Отлично, че там есть?", reply_markup=markup)
-
-
-
 
     # Finish conversation
     await state.finish()
