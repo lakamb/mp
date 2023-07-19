@@ -1,2 +1,5 @@
 # mp
-wb_api, tg_bot, db_connect, etl
+wb_api - сам коннект к wb
+tg_bot - бот
+db - база
+metrics - расчеты метрик
