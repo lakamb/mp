@@ -25,17 +25,11 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher(bot, storage=storage)
 
 
-# datefrom = 0
-datefrom = []
-
 # States
-
 class Form(StatesGroup):
-    name = State()
-    wb_token = State()  # Will be represented in storage as 'Form:age'
-    from_dt = State()  # Will be represented in storage as 'Form:name'
-
-    # gender = State()  # Will be represented in storage as 'Form:gender'
+    name = State() # Will be represented in storage as 'Form:name
+    wb_token = State()  
+    from_dt = State()  
 
 Forms = dict()
 
@@ -76,9 +70,8 @@ async def echo(message: types.Message):
 
 
 
-
 ###
-
+# Ветка 'create profile'
 # Введи имя
 @dp.message_handler(filters.Text(equals='create profile'))
 async def cmd_start(message: types.Message):
@@ -119,7 +112,7 @@ async def process_name(message: types.Message, state: FSMContext):
         data['name'] = message.text
 
     await Form.next()
-    await message.reply("Введи wb-токен ")
+    await message.reply("Введи wb-токен")
 
 ### Введи токен
 @dp.message_handler(state=Form.wb_token)
